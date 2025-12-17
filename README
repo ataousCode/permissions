@@ -1,0 +1,135 @@
+# AIGlass Backend API
+
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Version](https://img.shields.io/badge/version-1.0.0-informational)
+
+The AIGlass Backend is the official RESTful API that powers the AI Smart Glass. It handles user authentication, data processing, and core business logic, providing a secure and scalable foundation for the smart glass functionalities.
+
+## Table of Contents
+
+- [About The Project](#about-the-project)
+- [Tech Stack](#tech-stack)
+- [Features](#features)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [DevOps & Deployment](#devops--deployment)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+
+## About The Project
+
+This project serves as the central nervous system for the AI Smart Glass. It is built with a modern Java stack, designed for high performance, security, and scalability. The backend exposes a set of APIs for the smart glass to interact with, managing everything from user data to AI model interactions.
+
+## Tech Stack
+
+The application is built using a robust and modern technology stack:
+
+- **Backend:**
+  - ![Spring Boot](https://img.shields.io/badge/Spring_Boot-F2F4F9?style=for-the-badge&logo=spring-boot)
+  - ![Spring Security](https://img.shields.io/badge/Spring_Security-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+- **Authentication:**
+  - ![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=json-web-tokens&logoColor=white) (JSON Web Tokens)
+- **Database:**
+  - ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+- **DevOps & Containerization:**
+  - ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+  - ![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white)
+  - ![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
+
+## Features
+
+- **Secure Authentication:** JWT-based authentication and authorization using Spring Security.
+- **RESTful API:** A comprehensive set of endpoints for managing users, device data, and more.
+- **Data Persistence:** Reliable data storage and management with Spring Data JPA and MySQL.
+- **Containerized:** Fully containerized with Docker for consistent development and production environments.
+- **Scalable Architecture:** Designed to be deployed and managed with Kubernetes for high availability and scalability.
+
+## Getting Started
+
+To get a local copy up and running, follow these simple steps.
+
+### Prerequisites
+
+- [Docker](https://www.docker.com/get-started) and Docker Compose
+- [JDK 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) or later
+- [Maven](https://maven.apache.org/download.cgi)
+
+### Installation
+
+1.  **Clone the repository:**
+    ```sh
+    git clone https://github.com/moshangAAA/aiglass-backend.git
+    cd aiglass-backend
+    ```
+
+2.  **Configure Environment Variables:**
+    Create a `.env` file in the root of the project by copying the example file:
+    ```sh
+    cp .env.example .env
+    ```
+    Update the `.env` file with your database credentials and other environment-specific settings.
+
+3.  **Build and Run with Docker Compose:**
+    This is the recommended way to run the application as it sets up all the required services (backend, database, etc.).
+    ```sh
+    docker-compose up --build
+    ```
+    The application will be available at `http://localhost:8080`.
+
+## Configuration
+
+The application is configured using environment variables, which are defined in the `.env` file. This file is loaded at runtime and should not be committed to version control.
+
+| Variable                   | Description                                  | Default      |
+| -------------------------- | -------------------------------------------- | ------------ |
+| `SPRING_DATASOURCE_URL`    | The connection URL for the MySQL database.   | `jdbc:mysql://mysql:3306/aiglass_db` |
+| `SPRING_DATASOURCE_USERNAME` | The username for the database.               | `username`   |
+| `SPRING_DATASOURCE_PASSWORD` | The password for the database.               | `password`   |
+| `REDIS_HOST`               | The hostname for the Redis server.           | `redis`      |
+| `REDIS_PORT`               | The port for the Redis server.               | `6379`       |
+
+## Usage
+
+The API provides several endpoints to interact with the backend services. API documentation can be generated and exposed using tools like Swagger.
+
+*(Example: A placeholder for future API documentation)*
+- `GET /api/v1/users` - Retrieves a list of users.
+- `POST /api/v1/auth/login` - Authenticates a user and returns a JWT.
+
+## DevOps & Deployment
+
+### CI/CD
+
+This project is configured with a CI/CD pipeline using **Jenkins**. The `Jenkinsfile` (to be created) in the root directory will define the build, test, and deployment stages. The pipeline automates:
+1.  Code checkout
+2.  Unit & Integration Testing
+3.  Building the Docker image
+4.  Pushing the image to a container registry
+5.  Deploying to a Kubernetes cluster
+
+### Kubernetes (K8s)
+
+The application is designed to be deployed on a Kubernetes cluster. Deployment manifests (e.g., `deployment.yaml`, `service.yaml`) should be created to manage the application's lifecycle, scaling, and networking within the cluster.
+
+## Contributing
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1.  Fork the Project
+2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4.  Push to the Branch (`git push origin feature/AmazingFeature`)
+5.  Open a Pull Request
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+## Contact
+
+Project Link: [https://github.com/moshangAAA/aiglass-backend](https://github.com/moshangAAA/aiglass-backend)
